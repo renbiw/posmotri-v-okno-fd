@@ -106,6 +106,7 @@ ol {
   line-height: 100%;
   display: flex;
   width: fit-content;
+  position: relative;
 }
 
 .search-form__textfield {
@@ -129,28 +130,65 @@ ol {
   gap: 39px;
 }
 
-.search-form__pseudo-checkbox::before {
-  content: '';
+.search-form__pseudo-checkbox {
   display: inline-block;
   width: 19px;
   height: 19px;
   border: 1px solid #fff;
+  box-sizing: border-box;
 }
 
-.search-form__pseudo-checkbox::before:checked {
-  content: '';
-  display: inline-block;
-  width: 19px;
-  height: 19px;
-  background-color: #fff;
+.search-form__checkbox:checked ~ .search-form__pseudo-checkbox::after {
+  display: block;
 }
 
 .search-form__pseudo-checkbox::after{
   content: '';
-  display: inline-block;
-  width: 19px;
-  height: 19px;
+  inset: 11% 4%;
+  position: absolute;
+  display: none;
+  width: 15px;
+  height: 15px;
   background-color: #fff;
+}
+
+.search-form__label:has(.search-form__checkbox):focus-visible{
+  display: block;
+  outline: 1px solid #fff;
+}
+
+.search-form__label:has(.search-form__label-text):hover{
+  text-decoration: underline;
+}
+
+.button {
+  background-color: transparent;
+  font-family: 'Fira Sans Condensed';
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  border: 1px solid #fff;
+  cursor: pointer;
+}
+
+.button:hover {
+  text-decoration: underline;
+}
+
+.button:active {
+  background-color: #545050;
+}
+
+.button:focus-visible {
+  outline: 1px solid #fff;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.search-form__submit-button {
+  padding: 6px 73.5px;
 }
 
 .content__details {
@@ -181,10 +219,35 @@ ol {
   gap: 30px;
 }
 
+.content__list-item {
+  padding: 0 3px;
+}
+
 .content__card-link {
   text-decoration: none;
   color: #fff;
 }
+
+.content__card-link_current {
+  background-color: #545050;
+}
+
+.content__video-card:hover {
+  text-decoration: underline;
+}
+
+.content__video-card:active {
+  background-color: #545050;
+}
+
+.content__video-card:focus {
+  outline: none;
+}
+
+.content__video-card:focus-visible {
+  outline: 1px solid #fff;
+}
+
 
 .content__video-card {
   display: flex;
@@ -215,4 +278,9 @@ ol {
   object-fit: cover;
   object-position: center;
   width: 194px;
+}
+
+.more-button {
+  padding: 6px 142px;
+  margin-top: 30px;
 }
