@@ -78,7 +78,6 @@ ol {
 
 .result__video-container {
   width: 711px;
-  margin-bottom: 16px;
 }
 
 .result__video {
@@ -107,11 +106,16 @@ ol {
   display: flex;
   width: fit-content;
   position: relative;
+  padding: 1px;
+}
+
+.search-form__label:focus-visible {
+  outline: 1px solid #fff;
 }
 
 .search-form__textfield {
   font-family: 'Fira Sans Condensed';
-  min-width: 216px;
+  min-width: 224px;
   font-size: 18px;
   opacity: 0.7;
   background-color: transparent;
@@ -122,8 +126,11 @@ ol {
   appearance: none;
 }
 
-.search-form__label-city:has(:focus-visible) {
-  outline: 1px solid #fff;
+.search-form__textfield:active {
+  padding-left: 1px;
+  padding-right: 1px;
+  border-right: 1px solid #fff;
+  border-left: 1px solid #fff;;
 }
 
 .search-form__checkbox-list {
@@ -132,33 +139,28 @@ ol {
 }
 
 .search-form__pseudo-checkbox {
-  display: inline-block;
   width: 19px;
   height: 19px;
   border: 1px solid #fff;
-  box-sizing: border-box;
-}
-
-.search-form__checkbox:checked ~ .search-form__pseudo-checkbox::after {
-  display: block;
+  margin-right: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .search-form__pseudo-checkbox::after{
   content: '';
-  inset: 11% 4%;
-  position: absolute;
   display: none;
   width: 15px;
   height: 15px;
   background-color: #fff;
 }
 
-.search-form__label:has(.search-form__checkbox):focus-visible{
+.search-form__checkbox:checked ~ .search-form__pseudo-checkbox::after {
   display: block;
-  outline: 1px solid #fff;
 }
 
-.search-form__label:has(.search-form__label-text):hover{
+.search-form__label:has(.search-form__checkbox):hover{
   text-decoration: underline;
 }
 
@@ -213,17 +215,21 @@ ol {
 
 .content__list-container {
   height: 298px;
+  width: 394px;
   overflow-y: scroll;
   overflow-x: hidden;
 }
 
 .content__list {
-  display: grid;
+  display: flex;
+  gap: 30px;
+  flex-direction: column;
   gap: 30px;
 }
 
 .content__list-item {
   padding: 0 3px;
+  width: 100%;
 }
 
 .content__card-link {
@@ -259,6 +265,7 @@ ol {
 
 .content__video-card-description-container {
   flex-grow: 1;
+  overflow: hidden;
 }
 
 .content__video-card-title {
@@ -284,6 +291,6 @@ ol {
 }
 
 .more-button {
-  padding: 6px 142px;
+  padding: 6px 140px;
   margin-top: 30px;
 }
